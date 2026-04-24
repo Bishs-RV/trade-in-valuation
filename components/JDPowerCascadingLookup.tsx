@@ -311,7 +311,13 @@ export default function JDPowerCascadingLookup({
           placeholder="Select Year"
           searchPlaceholder="Search years..."
           options={yearOptions}
-          value={year?.toString() ?? null}
+          value={
+            year
+              ? yearOptions.some((o) => o.value === year.toString())
+                ? year.toString()
+                : `custom:${year}`
+              : null
+          }
           onChange={handleYearChange}
           isLoading={isLoadingYears}
           disabled={!jdPowerManufacturerId && !customManufacturer}

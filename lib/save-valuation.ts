@@ -30,6 +30,7 @@ export async function saveValuation({
     mileage: data.mileage || undefined,
     jdPowerModelTrimId: data.jdPowerModelTrimId || undefined,
     jdPowerManufacturerId: data.jdPowerManufacturerId || undefined,
+    manufacturer: data.manufacturerName || undefined,
     conditionScore: data.conditionScore,
     majorIssues: data.majorIssues || undefined,
     unitAddOns: data.unitAddOns || undefined,

@@ -20,6 +20,7 @@ export const tradeEvaluations = tradeToolSchema.table(
     mileage: integer('mileage'),
     jdPowerModelTrimId: integer('jd_power_model_trim_id'),
     jdPowerManufacturerId: integer('jd_power_manufacturer_id'),
+    manufacturer: text('manufacturer'),
     conditionScore: integer('condition_score'),
     majorIssues: text('major_issues'),
     unitAddOns: text('unit_add_ons'),

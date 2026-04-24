@@ -24,6 +24,7 @@ const createValuationSchema = z.object({
   // JD Power Data
   jdPowerModelTrimId: z.number().int().optional(),
   jdPowerManufacturerId: z.number().int().optional(),
+  manufacturer: z.string().optional(),
 
   // Condition Data
   conditionScore: z.number().int().min(1).max(10).optional(),
