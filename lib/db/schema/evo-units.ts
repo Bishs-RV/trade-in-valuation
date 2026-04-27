@@ -74,7 +74,7 @@ export const evoSalesdealdetailunits = pgTable(
     year: varchar('Year', { length: 255 }),
     manufacturer: varchar({ length: 255 }),
     newused: varchar('Newused', { length: 255 }),
-    unitSoldPrice: numeric('UnitSoldPrice', { precision: 19, scale: 2 }),
+    unitPrice: numeric('Unitprice', { precision: 19, scale: 2 }),
     daysInStore: integer('DaysInStore'),
     dateReceived: timestamp('DateReceived', { withTimezone: true, mode: 'string' }),
     salesDealId: varchar('SalesDeal_id', { length: 255 }).notNull(),

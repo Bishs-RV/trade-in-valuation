@@ -171,7 +171,7 @@ export async function GET(request: NextRequest) {
         model: evoSalesdealdetailunits.model,
         year: evoSalesdealdetailunits.year,
         manufacturer: evoSalesdealdetailunits.manufacturer,
-        soldPrice: evoSalesdealdetailunits.unitSoldPrice,
+        soldPrice: evoSalesdealdetailunits.unitPrice,
         listingDate: evoSalesdealdetailunits.dateReceived,
         stockNumber: evoSalesdealdetailunits.stocknumber,
         vin: evoSalesdealdetailunits.vin,
@@ -199,7 +199,7 @@ export async function GET(request: NextRequest) {
           sql`LOWER(REGEXP_REPLACE(${evoSalesdealdetailunits.model}, '[^a-zA-Z0-9]', '', 'g')) LIKE ${modelPattern}`,
           gte(sql`CAST(${evoSalesdealdetailunits.year} AS INTEGER)`, minYear),
           lte(sql`CAST(${evoSalesdealdetailunits.year} AS INTEGER)`, maxYear),
-          isNotNull(evoSalesdealdetailunits.unitSoldPrice),
+          isNotNull(evoSalesdealdetailunits.unitPrice),
           eq(evoSalesdealdetail.stageName, 'Delivered'),
           evoClass ? eq(evoSalesdealdetailunits.unitClass, evoClass) : undefined,
         )
