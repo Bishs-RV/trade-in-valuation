@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "@bishs-rv/media-service/base";
 
 @custom-variant dark (&:is(.dark *));
 

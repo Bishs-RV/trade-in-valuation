@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { MockAuthProvider } from "@bishs-rv/bishs-global-header";
 import "@bishs-rv/bishs-global-header/styles";
 import "./globals.css";
+import "@bishs-rv/media-service/styles";
 import { Providers } from "./providers";
 import { Toaster } from "@/components/ui/sonner";
 

@@ -1,5 +1,3 @@
-'use server'
-
 interface TokenResponse {
   access_token: string
   token_type: string
@@ -7,14 +5,14 @@ interface TokenResponse {
 }
 
 // Token cache
-let cachedToken: string | null = null
+let cachedToken: TokenResponse | null = null
 let tokenExpiry: number = 0
 
 /**
- * Get an OAuth2 access token using client credentials flow
+ * Get an OAuth2 token response using client credentials flow
  * Caches the token until 5 minutes before expiry
  */
-export async function getBishConnectToken(): Promise<string> {
+export async function getBishConnectTokenResponse(): Promise<TokenResponse> {
   const now = Date.now()
 
   // Return cached token if still valid
@@ -57,8 +55,16 @@ export async function getBishConnectToken(): Promise<string> {
   const data = (await response.json()) as TokenResponse
 
   // Cache the token with 5-minute buffer before expiry
-  cachedToken = data.access_token
+  cachedToken = data
   tokenExpiry = now + (data.expires_in - 300) * 1000
 
   return cachedToken
+}
+
+/**
+ * Get just the access token (most callers only need the bearer string)
+ */
+export async function getBishConnectToken(): Promise<string> {
+  const { access_token } = await getBishConnectTokenResponse()
+  return access_token
 }
